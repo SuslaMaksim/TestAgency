@@ -1,13 +1,23 @@
-import React from 'react';
-import form from './Form';
-import {connect} from 'react-redux'
-import mapStateToProps from "react-redux/lib/connect/mapStateToProps";
+import React, {useEffect} from 'react';
+import Form from './Form';
+import {connect} from 'react-redux';
+import {thankCreatorGetToken,thankGetRadioButtonsData} from '../../Reducers/FormReducer'
+
 
 const FormContainer = (props) => {
 
+    useEffect(()=>{
+        props.thankCreatorGetToken();
+        props.thankGetRadioButtonsData();
+    },[])
 
+    console.log(props)
     return(
-        <Form/>
+        <Form
+            modal = {props.modal}
+            radioButtonsData = {props.radioButtonsData}
+            token = {props.token}
+        />
     )
 
 }
@@ -15,9 +25,11 @@ const FormContainer = (props) => {
 
 let mapStateToProps = (state)=>{
     return{
-
+        token: state.formData.token,
+        radioButtonsData: state.formData.radioButtonsData,
+        modal: state.formData.modal
     }
 
 }
 
-export default connect()(FormContainer);
+export default connect(mapStateToProps,{thankCreatorGetToken,thankGetRadioButtonsData})(FormContainer);

@@ -1,33 +1,13 @@
 import React from "react";
-import {Box, Grid, Typography,InputLabel,TextField,FormLabel,RadioGroup,FormControlLabel} from "@material-ui/core";
-import { makeStyles,withStyles } from '@material-ui/core/styles';
-import StyledRadio from "./StyledRadio";
+import {Box, Typography,InputLabel,FormLabel,RadioGroup} from "@material-ui/core";
+import { makeStyles } from '@material-ui/core/styles';
 import Button from "@material-ui/core/Button";
 import InputFile from "./InputFile";
+import Preloader from "../CartUsers/Preloader";
+import RadioButtonContainer from "./RadioButtonContainer";
+import {useForm}  from 'react-hook-form';
+import InputField from './InputField'
 
-const InputField = withStyles({
-    root:{
-        '& label.Mui-focused':{
-            color: 'tomato'
-        },
-        '& label': {
-            color: 'tomato'
-        },
-        '& .MuiOutlinedInput-root':{
-            '& fieldset':{
-                borderColor: 'none'
-            },
-            '&:hover fieldset':{
-                borderColor: '#33ccff'
-            },
-            '&.Mui-focused fieldset':{
-                border: '1px solid #33ccff',
-                boxShadow: '0px 0px 2px 2px rgb(51, 204, 255,0.3)'
-            }
-        }
-    }
-
-})(TextField)
 
 const useStyle = makeStyles({
     mainContainer: {
@@ -35,14 +15,10 @@ const useStyle = makeStyles({
         background: '#fff',
         minHeight: '1070px',
         display: 'flex',
-
-
     },
     formContainer: {
         margin: '148px auto',
         maxWidth: '550px'
-
-
     },
     typographyH1: {
         fontFamily: 'Open Sans',
@@ -59,32 +35,10 @@ const useStyle = makeStyles({
     },
     form: {
         margin: '0px 42px'
-
     },
-    input: {
-        marginTop: '24px'
-    },
-    inputText: {
-        fontFamily:'Open Sans',
-        margin: "9px 0px 0px",
-
-
-        '& .MuiOutlinedInput-input': {
-            fontSize: '14px',
-            fontFamily:'Open Sans',
-            paddingTop: '11px',
-
-        },
-        '& .MuiFormHelperText-contained': {
-            marginLeft: '0px',
-            color: 'black',
-            marginTop: '5px',
-        },
-        '& .MuiOutlinedInput-root':{
-
-
-        }
-
+    inputsContainer: {
+        marginTop: '24px',
+        position: 'relative'
     },
     radioGrup: {
         marginTop: '22px'
@@ -94,22 +48,6 @@ const useStyle = makeStyles({
         color: 'black',
         marginBottom: '18px',
         fontSize: '15px',
-    },
-    radioButton: {
-        marginBottom: '9px',
-        "& .MuiTypography-body1":{
-            fontSize: '14px',
-            fontFamily: 'Open Sans',
-        },
-        '& .PrivateSwitchBase-root-82':{
-            padding: '0px 8px 0px 9px'
-        },
-        "& .MuiIconButton-root": {
-            padding: '0px 8px 0px 9px'
-        },
-        "&:last-child":{
-            marginBottom: '0px'
-        }
     },
     btn: {
         display: 'block',
@@ -124,16 +62,13 @@ const useStyle = makeStyles({
         '&:hover': {
             background: '#ef5b4c',
         }
-
-
-
     }
-
-
 })
 
 const Form = (props)=>{
 const classes = useStyle();
+const{register,handleSubmit,errors} = useForm()
+
     return(
         <Box component='div' className={classes.mainContainer} >
             <Box component='div' className={classes.formContainer}>
@@ -143,63 +78,83 @@ const classes = useStyle();
                 <Typography variant='body1' align='center' className={classes.attention}>
                     Attention! After successful registration and alert, update the list of users in the block from the top
                 </Typography>
-                    <Box component='form' className={classes.form} >
-                        <Box component='div' className={classes.input}>
-                        <InputLabel shrink htmlFor="bootstrap-input" style={{fontSize: '19px',fontFamily:'Open Sans',color:'black',}}>
+                    <Box component='form'  className={classes.form} onSubmit={handleSubmit(data=> console.log(data))}>
+                        <Box component='div' className={classes.inputsContainer}>
+                        <InputLabel shrink htmlFor="name" style={{fontSize: '19px',fontFamily:'Open Sans',color:'black',}}>
                             Name
                         </InputLabel>
                         <InputField
-                            className={classes.inputText}
-                            id="bootstrap-input"
+                            id="name"
                             placeholder="Your name"
-                            variant="outlined"
-
-                            fullWidth
-                            margin="dense"
+                            name = 'Name'
+                            inputRef = {register({ required: true, minLength: 2 , maxLength: 60})}
+                            errors = {errors.Name}
+                            errorsText = 'Please Enter validate Name'
                         />
                         </Box>
-                        <Box component='div' className={classes.input}>
-                            <InputLabel shrink htmlFor="bootstrap-input" style={{fontSize: '19px',fontFamily:'Open Sans',color:'black',}}>
+                        <Box component='div' className={classes.inputsContainer}>
+                            <InputLabel shrink htmlFor="Email" style={{fontSize: '19px',fontFamily:'Open Sans',color:'black',}}>
                                 Email
                             </InputLabel>
                             <InputField
-                                className={classes.inputText}
-                                id="bootstrap-input"
+                                id="Email"
                                 placeholder="Your email"
-                                variant="outlined"
+                                name = 'Email'
+                                inputRef = {register({ required: true,minLength: 2,maxLength:100,pattern: /^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/ })}
+                                errors = {errors.Email}
+                                errorsText = 'Please Enter validate Email'
+                                type='email'
 
-                                fullWidth
-                                margin="dense"
                             />
                         </Box>
-                        <Box component='div' className={classes.input}>
+                        <Box component='div' className={classes.inputsContainer}>
                             <InputLabel shrink htmlFor="phoneNumber" style={{fontSize: '19px',fontFamily:'Open Sans',color:'black',}}>
                                 Phone number
                             </InputLabel>
                             <InputField
-                                className={classes.inputText}
                                 id="phoneNumber"
                                 placeholder="+380 XX XXX XX XX"
-                                variant="outlined"
-
-                                fullWidth
-                                margin="dense"
+                                name = "PhoneNumber"
                                 helperText="Enter phone number in open format"
+                                inputRef = {register({ required: true,pattern: /^[\+]{0,1}380([0-9]{9})$/ })}
+                                errors = {errors.PhoneNumber}
+                                errorsText = 'Please Enter validate phone Number'
                             />
                         </Box>
                         <Box className='div' className={classes.radioGrup}>
                         <FormLabel component="legend" className={classes.formLabel}>Select your position</FormLabel>
-                        <RadioGroup defaultValue="Frontend developer" aria-label="position" name="customized-radios" style={{padding: '2px'}}>
-                            <FormControlLabel value="Frontend developer" className={classes.radioButton} control={<StyledRadio/>} label="Frontend developer" />
-                            <FormControlLabel value="Backend developer" className={classes.radioButton} control={<StyledRadio/>} label="Backend developer" />
-                            <FormControlLabel value="Designer" className={classes.radioButton} control={<StyledRadio/>} label="Designer" />
-                            <FormControlLabel value="QA" className={classes.radioButton} control={<StyledRadio/>} label="QA" />
+                        <RadioGroup aria-label="position" name="customized-radios" style={{padding: '2px'}}>
+                            { props.radioButtonsData === null
+                                ?
+                                <Preloader
+                                    width = '50px'
+                                    height = '50x'
+                                    margin = '20px auto 35px'
+                                />
+                                : props.radioButtonsData.map( radioData =>
+                                <RadioButtonContainer
+
+                                id = {radioData.id}
+                                value = {radioData.name}
+                                key = {radioData.id}
+                                register = {register({ required: true })}
+                                name = 'position'
+
+
+                                /> )
+                            }
+                            {errors.position && <span style={{color: 'tomato',fontSize: '14px',}}>Your must choose Profession</span> }
+
                         </RadioGroup>
                         </Box>
                         <Box component='div' className={classes.fileContainer} style={{marginTop: '18px'}}>
                             <Typography style={{ fontSize:'14px', fontFamily: 'Open Sans, sans-serif'}}> Photo</Typography>
-                            <InputFile/>
-                            <Button  className={classes.btn} >Sing up now</Button>
+                            <InputFile name = 'imageFile'
+                                       register={ register({ required: true })}
+                                       error = {errors.imageFile}
+                                       errorsText = 'Your must choose Avatar image'
+                            />
+                            <Button type = 'submit'  className={classes.btn} >Sing up now</Button>
                         </Box>
 
 

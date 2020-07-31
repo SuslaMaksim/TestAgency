@@ -70,7 +70,9 @@ const CartUsers = (props)=>{
                     </Grid>
 
                     <Grid xs={12} container item spacing={6} className={classes.usersContainer}>
-                        {props.usersCards === null ? <Preloader /> : props.usersCards.map( card => <UserCard key = {card.id} {...card}/> ) }
+                        {props.usersCards === null ? <Preloader  width = '100px'
+                                                                 height = '100x'
+                                                                 margin = '130px auto 220px' /> : props.usersCards.map( card => <UserCard key = {card.id} {...card}/> ) }
                     </Grid>
 
                     <Grid xs={12} container item justify='center' >

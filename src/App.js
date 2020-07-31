@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Box from "@material-ui/core/Box";
 import CssBaseline from '@material-ui/core/CssBaseline';
-import {Header,Description,AboutTest,CardsUsersContainer,Form,Footer} from './Components/index';
+import {Header,Description,AboutTest,CardsUsersContainer,FormContainer,Footer} from './Components/index';
 
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
         <Description/>
         <AboutTest/>
         <CardsUsersContainer/>
-        <Form/>
+        <FormContainer/>
         <Footer/>
     </Box>
   );
