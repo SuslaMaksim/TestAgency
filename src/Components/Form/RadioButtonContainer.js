@@ -32,7 +32,7 @@ const RadioButtonContainer = (props)=>{
 
 
     return(
-        <FormControlLabel defaultValue={false} value={props.id.toString()} name={name} className={classes.radioButton} control={<StyledRadio/>} label={props.value} inputRef={register}/>
+        <FormControlLabel  defaultValue={false} value={props.id.toString()} name={name} className={classes.radioButton} control={<StyledRadio/>} label={props.value} inputRef={register}/>
     )
 }
 

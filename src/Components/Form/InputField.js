@@ -2,6 +2,7 @@
 import React from 'react'
 import {Box, TextField} from "@material-ui/core";
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import ErrorsCreator from "../CartUsers/Helper";
 
 
 const useStyles = makeStyles({
@@ -57,7 +58,9 @@ let InputField = (props)=>{
 
 
     return<>
-        {props.errors && <span style={{color: 'tomato',position: "absolute",fontSize: '12px',top: '5px',right: '0px'}}>{props.errorsText}</span> }
+
+
+      { props.errors && <ErrorsCreator type ={props.errors.type} errorsText={props.errorsText} />}
         <TextField  margin="dense"
         className={classes.inputText}
         classes = {{
@@ -71,6 +74,7 @@ let InputField = (props)=>{
                        id = {props.id}
                        type={props.type}
                        inputRef = {props.inputRef}
+
 
 
     />
