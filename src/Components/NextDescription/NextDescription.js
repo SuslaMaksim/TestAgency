@@ -7,42 +7,67 @@ const useStyle = makeStyles(theme=>({
     boxContainer: {
         padding: '1px',
         background: '#fff',
-        minHeight: '720px'
+        minHeight: '720px',
+        [theme.breakpoints.down('sm')]: {
+            minHeight: '656px',
+        }
     },
     boxInfo: {
-        marginTop: '150px'
+        marginTop: '150px',
+        [theme.breakpoints.down('sm')]: {
+            marginTop: '112px'
+        }
+
     },
     typographyH1: {
         fontFamily: 'Open Sans',
         lineHeight: '56px',
         fontSize: '50px',
-        letterSpacing: '-0.6px'
+        letterSpacing: '-0.6px',
+        [theme.breakpoints.down('sm')]: {
+            lineHeight: '44px',
+            fontSize: '40px',
+            letterSpacing: '-0.4px',
+        }
 
     },
     imgContainer: {
         display: 'flex',
-        height: '286px',
-        margin: '10px 10px',
+        margin: '12px 5px 0 0 ',
+        maxWidth: '290px',
         [theme.breakpoints.down('sm')]: {
-            justifyContent: 'center'
+            maxWidth: '245px',
         },
     },
     img: {
-        margin: 'auto',
         display: 'block',
-        maxWidth: '100%',
-        maxHeight: '100%'
+        width: '100%',
+    },
+    photoContainer:{
+        marginLeft: '30px',
+        [theme.breakpoints.down('sm')]: {
+            marginLeft: '30px'
+        },
+    },
+    infoGridContainer:{
+        [theme.breakpoints.down('sm')]: {
+            marginLeft: '20px',
+        },
     },
     infoContainer: {
         padding: '6px 28px 0px 17px',
         '& .MuiTypography-body1':{
             fontFamily: 'Open Sans',
-        }
+        },
+        [theme.breakpoints.down('sm')]: {
+          padding: '6px 15px 0px 0px'
+        },
     },
     commonText: {
         fontFamily: 'Open Sans',
         lineHeight: '24px',
-        marginBottom: '23px'
+        marginBottom: '23px',
+        letterSpacing: '-0.1px'
     },
     btn: {
         textTransform: 'none',
@@ -68,16 +93,16 @@ const AboutTest = ()=>{
                                 Let's get acquainted
                             </Typography>
                         </Grid>
-                        <Grid item container xs={12} justify='center' style={{marginTop:'60px'}}>
-                            <Grid item xs={12} md={5}>
+                        <Grid item container xs={12}  style={{marginTop:'60px'}}>
+                            <Grid item xs={12} sm={4} md={4} className={classes.photoContainer}>
                                 <Box component='div' className={classes.imgContainer}>
-                                    <img src={frontEnd} alt="frontend" className='img'/>
+                                    <img src={frontEnd} alt="frontend" className={classes.img}/>
                                 </Box>
                             </Grid>
-                            <Grid item xs={12} md={7}>
+                            <Grid item xs={12} sm={7} md={7} className={classes.infoGridContainer}>
                                 <Box component='div' className={classes.infoContainer}>
                                     <Typography variant='h5' style={{ fontFamily: 'Open Sans',lineHeight: '30px',marginBottom: '20px'}}>I am  cool frontend developer</Typography>
-                                    <Typography variant='body1'  align='justify' className={classes.commonText}>
+                                    <Typography variant='body1'  align='justify'  className={classes.commonText}>
                                         We will evaluate how clean your approach to writing CSS and javascript code is. You
                                         can use any CSS and Javascript 3rd party libraries without any restriction
                                     </Typography>

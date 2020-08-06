@@ -43,7 +43,18 @@ let useStyles = makeStyles(theme =>({
     },
     listItemColor: {
         color: 'tan'
-    }
+    },
+    iconButton: {
+        padding: '0px',
+        color: '#001a66',
+        '& .MuiSvgIcon-root': {
+            fontSize: '30px',
+            display: 'flex',
+            justifyContent: 'flex-end'
+
+        }
+    },
+
 }))
 
 
@@ -57,7 +68,7 @@ const Drawer = (props)=>{
 
     return(
         <>
-        <IconButton onClick={toggleSlider('right',true)}>
+        <IconButton className={classes.iconButton} onClick={toggleSlider('right',true)}>
             <MenuIcon />
         </IconButton>
         <MobileRightMenuSlider open={state.right} anchor='right' onClose={toggleSlider('right',false)}>

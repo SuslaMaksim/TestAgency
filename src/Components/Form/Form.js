@@ -12,7 +12,7 @@ import ModalComponent from "./Modal";
 
 
 
-const useStyle = makeStyles({
+const useStyle = makeStyles((theme)=>({
     mainContainer: {
         padding: '1px',
         background: '#fff',
@@ -21,23 +21,38 @@ const useStyle = makeStyles({
     },
     formContainer: {
         margin: '148px auto',
-        maxWidth: '550px'
+        maxWidth: '550px',
+        [theme.breakpoints.down('sm')]: {
+            marginTop: '110px',
+        }
     },
     typographyH1: {
         fontFamily: 'Open Sans',
         lineHeight: '58px',
         fontSize: '50px',
         letterSpacing: '.1px',
-        marginBottom: '15px'
+        marginBottom: '15px',
+        [theme.breakpoints.down('sm')]: {
+            lineHeight: '44px',
+            fontSize: '40px',
+            letterSpacing: '-.2px',
+            marginBottom: '18px'
+        }
+
     },
     attention: {
         fontFamily: 'Open Sans',
         lineHeight: '24px',
         padding: '0px 45px',
-        marginBottom: '32px'
+        marginBottom: '32px',
+        [theme.breakpoints.down('sm')]: {
+            lineHeight: '22px',
+
+        }
+
     },
     form: {
-        margin: '0px 42px'
+        margin: '0px 38px 0px 46px'
     },
     inputsContainer: {
         marginTop: '24px',
@@ -80,7 +95,7 @@ const useStyle = makeStyles({
         fontSize: '14px',
     }
 
-})
+}))
 
 const Form =(props)=>{
 const classes = useStyle();

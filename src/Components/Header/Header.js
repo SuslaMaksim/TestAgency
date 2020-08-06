@@ -14,10 +14,18 @@ const useStyles = makeStyles((theme) => ({
         minHeight: '55px',
         paddingLeft: '30px',
         paddingRight: '30px',
+        [theme.breakpoints.down('sm')]: {
+            minHeight: '60px',
+            alignItems: 'center'
+        }
     },
+
     logoContainer: {
         display: 'flex',
-        marginBottom: "6px"
+        marginBottom: "6px",
+        [theme.breakpoints.down('sm')]: {
+            marginBottom: "0px"
+        }
     },
     listContainer:{
         display: 'flex',
@@ -32,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     containerDrawer: {
         display: 'none',
         [theme.breakpoints.down('sm')]: {
-            display: 'block'
+            display: 'block',
         },
     },
     listItem:{

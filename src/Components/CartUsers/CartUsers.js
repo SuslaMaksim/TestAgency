@@ -11,18 +11,30 @@ const useStyle = makeStyles((theme) => ({
     mainContainer: {
         padding: '1px',
         minHeight: '1105px',
-        background: "#f9f9f3"
+        background: "#f9f9f3",
+        [theme.breakpoints.down('sm')]: {
+            minHeight: '1028px',
+        }
     },
     cartUsersContainer: {
         marginTop: '150px',
-        marginBottom: '50px'
+        marginBottom: '50px',
+        [theme.breakpoints.down('sm')]: {
+            marginTop: '112px',
+        }
     },
     typographyH1: {
         fontFamily: 'Open Sans',
         lineHeight: '58px',
         fontSize: '50px',
         letterSpacing: '.1px',
-        marginBottom: '15px'
+        marginBottom: '15px',
+        [theme.breakpoints.down('sm')]: {
+            lineHeight: '44px',
+            fontSize: '40px',
+            letterSpacing: '.1px',
+            marginBottom: '17px',
+        }
 
 
     },
@@ -69,7 +81,7 @@ const CartUsers = (props)=>{
                         </Typography>
                     </Grid>
 
-                    <Grid xs={12} container item spacing={6} className={classes.usersContainer}>
+                    <Grid   container item spacing={6} className={classes.usersContainer}>
                         {props.usersCards === null ? <Preloader  width = '100px'
                                                                  height = '100x'
                                                                  margin = '130px auto 220px' /> : props.usersCards.map( card => <UserCard key = {card.id} {...card}/> ) }

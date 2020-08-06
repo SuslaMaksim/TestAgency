@@ -40,7 +40,7 @@ const UserCard = (props)=>{
 
 
     return(
-        <Grid xs={4} item justify='center' container style={{padding: '0px 24px',  color: '#4D4D4D'} } className={classes.userContainer}>
+        <Grid md={4} sm={4}  xs={12} item justify='center' container style={{padding: '0px 24px',  color: '#4D4D4D'} } className={classes.userContainer}>
             <Card className={classes.card} >
                 <Box component='div' className={classes.avatarContainer} >
                     <Avatar  alt='avatar' src={photo} className={classes.avatar}/>

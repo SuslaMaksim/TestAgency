@@ -11,12 +11,19 @@ const useStyles = makeStyles((theme) => ({
         backgroundRepeat: 'no-repeat',
         backgroundImage: 'url(' + img + ')',
         minHeight: '600px',
-        padding: '1px 30px'
+        padding: '1px 30px',
+        [theme.breakpoints.down("sm")]:{
+            minHeight: '500px',
+        }
     },
     boxDescription: {
         color: '#fff',
         marginTop: '106px',
         maxWidth: '530px',
+        [theme.breakpoints.down("sm")]:{
+            marginTop: '58px',
+            maxWidth: '430px'
+        }
     },
     devPosition: {
         textTransform: 'uppercase',
@@ -24,12 +31,22 @@ const useStyles = makeStyles((theme) => ({
         lineHeight: '54px',
         fontSize: '50px',
         marginBottom: '25px',
-        letterSpacing: '-0.6px'
+        letterSpacing: '-0.6px',
+        [theme.breakpoints.down("sm")]:{
+            lineHeight: '44px',
+            fontSize: '40px',
+            letterSpacing: '0px',
+            marginBottom: '28px',
+        }
     },
     body1: {
         fontFamily: 'Open Sans, sans-serif',
         marginBottom: '34px',
-        fontStyle: 'normal'
+        fontStyle: 'normal',
+        [theme.breakpoints.down("sm")]:{
+           fontStyle: 'none',
+            fontFamily: 'sans-serif'
+        }
     },
     btn: {
         backgroundColor: '#ef5b4c',
