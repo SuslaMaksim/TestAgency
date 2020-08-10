@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/TestTask/static/css/main.32e1f0fb.chunk.css",
+    "main.js": "/TestTask/static/js/main.40fca44c.chunk.js",
+    "main.js.map": "/TestTask/static/js/main.40fca44c.chunk.js.map",
+    "runtime-main.js": "/TestTask/static/js/runtime-main.80a968b7.js",
+    "runtime-main.js.map": "/TestTask/static/js/runtime-main.80a968b7.js.map",
+    "static/js/2.baf77d47.chunk.js": "/TestTask/static/js/2.baf77d47.chunk.js",
+    "static/js/2.baf77d47.chunk.js.map": "/TestTask/static/js/2.baf77d47.chunk.js.map",
+    "index.html": "/TestTask/index.html",
+    "precache-manifest.99969dbcc5cba94c34ff520f14aeea27.js": "/TestTask/precache-manifest.99969dbcc5cba94c34ff520f14aeea27.js",
+    "service-worker.js": "/TestTask/service-worker.js",
+    "static/css/main.32e1f0fb.chunk.css.map": "/TestTask/static/css/main.32e1f0fb.chunk.css.map",
+    "static/js/2.baf77d47.chunk.js.LICENSE.txt": "/TestTask/static/js/2.baf77d47.chunk.js.LICENSE.txt",
+    "static/media/banner-photo.jpg": "/TestTask/static/media/banner-photo.f5443d74.jpg",
+    "static/media/logo.svg": "/TestTask/static/media/logo.146e2926.svg",
+    "static/media/man-laptop-v1.svg": "/TestTask/static/media/man-laptop-v1.3cdf7897.svg",
+    "static/media/App.css": "/TestTask/static/media/pattern-overlay.9c5a5302.png",
+    "static/media/preloader.gif": "/TestTask/static/media/preloader.cffa9d9d.gif"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.80a968b7.js",
+    "static/js/2.baf77d47.chunk.js",
+    "static/css/main.32e1f0fb.chunk.css",
+    "static/js/main.40fca44c.chunk.js"
+  ]
+}
