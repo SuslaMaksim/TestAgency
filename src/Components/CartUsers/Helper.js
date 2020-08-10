@@ -15,7 +15,7 @@ import React from "react";
 export default ErrorsCreator;
 
 let Error = ({errorsText})=>{
-     return <span style={{color: 'tomato',position: "absolute",fontSize: '12px',top: '5px',right: '0px'}}>{errorsText}</span>
+     return <span style={{color: 'tomato',position: "absolute",fontSize: '12px',top: '12px',right: '0px'}}>{errorsText}</span>
 }
 
 

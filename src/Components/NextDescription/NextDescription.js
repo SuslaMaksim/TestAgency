@@ -16,6 +16,9 @@ const useStyle = makeStyles(theme=>({
         marginTop: '150px',
         [theme.breakpoints.down('sm')]: {
             marginTop: '112px'
+        },
+        [theme.breakpoints.down("xs")]:{
+            margin: '68px 0px ',
         }
 
     },
@@ -28,7 +31,12 @@ const useStyle = makeStyles(theme=>({
             lineHeight: '44px',
             fontSize: '40px',
             letterSpacing: '-0.4px',
+        },
+        [theme.breakpoints.down("xs")]:{
+            lineHeight: '34px',
+            fontSize: '30px',
         }
+
 
     },
     imgContainer: {
@@ -38,20 +46,30 @@ const useStyle = makeStyles(theme=>({
         [theme.breakpoints.down('sm')]: {
             maxWidth: '245px',
         },
+        [theme.breakpoints.down("xs")]:{
+            margin: '0px auto',
+            maxWidth: '300px',
+        }
     },
     img: {
         display: 'block',
         width: '100%',
     },
     photoContainer:{
-        marginLeft: '30px',
+        margin: '60px 0px 0px 30px',
         [theme.breakpoints.down('sm')]: {
             marginLeft: '30px'
         },
+        [theme.breakpoints.down("xs")]:{
+            margin: '20px',
+        }
     },
     infoGridContainer:{
         [theme.breakpoints.down('sm')]: {
             marginLeft: '20px',
+        },
+        [theme.breakpoints.down('xs')]: {
+            margin: '0px'
         },
     },
     infoContainer: {
@@ -62,6 +80,9 @@ const useStyle = makeStyles(theme=>({
         [theme.breakpoints.down('sm')]: {
           padding: '6px 15px 0px 0px'
         },
+        [theme.breakpoints.down('xs')]: {
+            padding: ' 0px 15px'
+        }
     },
     commonText: {
         fontFamily: 'Open Sans',
@@ -75,7 +96,11 @@ const useStyle = makeStyles(theme=>({
         fontFamily: 'Open Sans',
         fontSize: '16px',
         fontWeight: 'bolder',
-        padding: '5px 0px'
+        padding: '5px 0px',
+        [theme.breakpoints.down("xs")]:{
+            display: 'block',
+            margin: '0 auto'
+        }
 
     }
 }))
@@ -93,7 +118,7 @@ const AboutTest = ()=>{
                                 Let's get acquainted
                             </Typography>
                         </Grid>
-                        <Grid item container xs={12}  style={{marginTop:'60px'}}>
+                        <Grid item container xs={12}  >
                             <Grid item xs={12} sm={4} md={4} className={classes.photoContainer}>
                                 <Box component='div' className={classes.imgContainer}>
                                     <img src={frontEnd} alt="frontend" className={classes.img}/>
@@ -101,7 +126,7 @@ const AboutTest = ()=>{
                             </Grid>
                             <Grid item xs={12} sm={7} md={7} className={classes.infoGridContainer}>
                                 <Box component='div' className={classes.infoContainer}>
-                                    <Typography variant='h5' style={{ fontFamily: 'Open Sans',lineHeight: '30px',marginBottom: '20px'}}>I am  cool frontend developer</Typography>
+                                    <Typography variant='h5' className={classes.typographyH5} style={{ fontFamily: 'Open Sans',lineHeight: '30px',marginBottom: '20px'}}>I am  cool frontend developer</Typography>
                                     <Typography variant='body1'  align='justify'  className={classes.commonText}>
                                         We will evaluate how clean your approach to writing CSS and javascript code is. You
                                         can use any CSS and Javascript 3rd party libraries without any restriction

@@ -21,6 +21,9 @@ const useStyle = makeStyles((theme) => ({
         marginBottom: '50px',
         [theme.breakpoints.down('sm')]: {
             marginTop: '112px',
+        },
+        [theme.breakpoints.down('xs')]: {
+            margin: '68px 0px',
         }
     },
     typographyH1: {
@@ -34,6 +37,10 @@ const useStyle = makeStyles((theme) => ({
             fontSize: '40px',
             letterSpacing: '.1px',
             marginBottom: '17px',
+        },
+        [theme.breakpoints.down('xs')]: {
+            lineHeight: '34px',
+            fontSize: '30px',
         }
 
 
@@ -46,23 +53,11 @@ const useStyle = makeStyles((theme) => ({
     },
     usersContainer: {
         margin: '51px 15px 5px',
-    },
-
-    btn: {
-        backgroundColor: '#ef5b4c',
-        color: 'white',
-        textTransform: 'none',
-        fontFamily: 'Open Sans, sans-serif',
-        fontSize: '16px',
-        width: '210px',
-        padding: '5px 0 5px',
-        marginBottom: '50px',
-        '&:hover': {
-            background: '#ef5b4c',
+        [theme.breakpoints.down('xs')]: {
+            margin: '20px 15px 5px'
         }
-
-
     }
+
 }))
 const CartUsers = (props)=>{
 

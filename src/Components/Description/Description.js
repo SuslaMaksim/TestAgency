@@ -14,6 +14,10 @@ const useStyles = makeStyles((theme) => ({
         padding: '1px 30px',
         [theme.breakpoints.down("sm")]:{
             minHeight: '500px',
+        },
+        [theme.breakpoints.down("xs")]:{
+            minHeight: '500px',
+            padding: '1px 20px',
         }
     },
     boxDescription: {
@@ -23,6 +27,10 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.down("sm")]:{
             marginTop: '58px',
             maxWidth: '430px'
+        },
+        [theme.breakpoints.down("xs")]:{
+            margin: '68px 0px',
+            maxWidth: '100%'
         }
     },
     devPosition: {
@@ -35,8 +43,14 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.down("sm")]:{
             lineHeight: '44px',
             fontSize: '40px',
-            letterSpacing: '0px',
             marginBottom: '28px',
+        },
+        [theme.breakpoints.down("xs")]:{
+            lineHeight: '34px',
+            fontSize: '30px',
+            letterSpacing: '0px',
+            marginBottom: '20px',
+            textAlign: 'center'
         }
     },
     body1: {
@@ -46,6 +60,10 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.down("sm")]:{
            fontStyle: 'none',
             fontFamily: 'sans-serif'
+        },
+        [theme.breakpoints.down("xs")]:{
+            textAlign: 'center',
+            marginBottom: '20px'
         }
     },
     btn: {
@@ -58,6 +76,10 @@ const useStyles = makeStyles((theme) => ({
         padding: '5px 0 5px',
         '&:hover': {
             background: '#ef5b4c',
+        },
+        [theme.breakpoints.down("xs")]:{
+            display: 'block',
+            margin: '0 auto'
         }
 
 

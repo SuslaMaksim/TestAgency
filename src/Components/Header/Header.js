@@ -2,7 +2,6 @@ import React from 'react'
 import {AppBar,Toolbar,Box,ListItem,List,ListItemText,IconButton} from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 import logo from '../../img/logo.svg';
-import MenuIcon from '@material-ui/icons/Menu';
 import Drawer from "./Drawer";
 
 const useStyles = makeStyles((theme) => ({
@@ -17,6 +16,10 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.down('sm')]: {
             minHeight: '60px',
             alignItems: 'center'
+        },
+        [theme.breakpoints.down('xs')]: {
+            minHeight: '40px',
+            padding: '0px 12px 0px 15px  '
         }
     },
 

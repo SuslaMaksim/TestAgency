@@ -18,12 +18,18 @@ const useStyle = makeStyles((theme)=>({
         background: '#fff',
         minHeight: '1070px',
         display: 'flex',
+        [theme.breakpoints.down('xs')]: {
+            minHeight: '500px',
+        }
     },
     formContainer: {
         margin: '148px auto',
         maxWidth: '550px',
         [theme.breakpoints.down('sm')]: {
             marginTop: '110px',
+        },
+        [theme.breakpoints.down('xs')]: {
+            margin: '68px 0px',
         }
     },
     typographyH1: {
@@ -37,6 +43,10 @@ const useStyle = makeStyles((theme)=>({
             fontSize: '40px',
             letterSpacing: '-.2px',
             marginBottom: '18px'
+        },
+        [theme.breakpoints.down('xs')]: {
+            lineHeight: '34px',
+            fontSize: '30px',
         }
 
     },
@@ -48,11 +58,19 @@ const useStyle = makeStyles((theme)=>({
         [theme.breakpoints.down('sm')]: {
             lineHeight: '22px',
 
+        },
+        [theme.breakpoints.down('sm')]: {
+            padding: '0px 25px',
+
         }
 
     },
     form: {
-        margin: '0px 38px 0px 46px'
+        margin: '0px 38px 0px 46px',
+        [theme.breakpoints.down('sm')]: {
+            margin: '0px 15px'
+
+        }
     },
     inputsContainer: {
         marginTop: '24px',
@@ -169,7 +187,7 @@ let onSubmit = (data,e)=>{
                                 helperText="Enter phone number in open format"
                                 inputRef = {register({ required: true,pattern: /^[\+]{0,1}380([0-9]{9})$/ })}
                                 errors = {errors.phone}
-                                errorsText = {{emptyField:'Please Enter Phone number!',validationFailed: 'User phone number, should start with code of Ukraine +380 and have 12 numb'}}
+                                errorsText = {{emptyField:'Please Enter Phone number!',validationFailed: 'Phone should start with code of Ukraine +380 and have 12'}}
                             />
                         </Box>
                         <Box className='div' className={classes.radioGrup}>
