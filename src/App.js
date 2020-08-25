@@ -8,13 +8,14 @@ import {Header,Description,AboutTest,CardsUsersContainer,FormContainer,Footer} f
 function App() {
   return (
     <Box component='div' style={{maxWidth: '1024px',margin: '0 auto'}} >
-        <CssBaseline/>
+
         <Header/>
         <Description/>
         <AboutTest/>
         <CardsUsersContainer/>
         <FormContainer/>
         <Footer/>
+
     </Box>
   );
 }

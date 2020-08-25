@@ -32,7 +32,7 @@ const InputFile = (props)=>{
         />
         <label htmlFor="contained-button-file" className={error ? errorFileFake : css.field__fileWrapper}>
             <div className={css.field__fileFake}> Upload your photo</div>
-            <div className={error ? errorFileButton: css.field__fileButton}>Вrowse</div>
+            <div className={error ? errorFileButton : css.field__fileButton}>Вrowse</div>
         </label>
         </div>
     )

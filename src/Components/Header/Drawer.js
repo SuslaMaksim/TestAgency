@@ -4,7 +4,7 @@ import {Box, IconButton,List,ListItem,ListItemIcon,ListItemText} from "@material
 import MenuIcon from "@material-ui/icons/Menu";
 import {Apps, AssignmentInd, ContactMail, Home} from "@material-ui/icons";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import logo from '../../img/logo.svg';
+import logotype from '../../img/logo.svg';
 import Divider from "@material-ui/core/Divider";
 
 
@@ -128,7 +128,7 @@ const Drawer = (props)=>{
         </IconButton>
         <MobileRightMenuSlider open={state.right} anchor='right' onClose={toggleSlider('right',false)}>
             <Box component='div' className={classes.logoContainer}>
-                <img src={logo} alt="logo"/>
+                <img src={logotype} alt="logo"/>
             </Box>
             <Divider/>
 

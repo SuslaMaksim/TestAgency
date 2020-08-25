@@ -27,9 +27,11 @@ const useStyle = makeStyles((theme)=>({
         maxWidth: '550px',
         [theme.breakpoints.down('sm')]: {
             marginTop: '110px',
+
         },
         [theme.breakpoints.down('xs')]: {
             margin: '68px 0px',
+            maxWidth: '100%',
         }
     },
     typographyH1: {
